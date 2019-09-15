@@ -1,0 +1,2 @@
+FLASK_APP=golden_redhat_awards.py
+FLASK_ENV=development
