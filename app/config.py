@@ -22,5 +22,3 @@ class Config(object):
     recreate_database(Base, engine)
     Session = sessionmaker(bind=engine)
     
-    
-
