@@ -1,4 +1,5 @@
 import os
+
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
@@ -9,7 +10,6 @@ class Config(object):
     """
     This class configures the database and its migrations
     """
-
     def recreate_database(Base, engine):
         Base.metadata.drop_all(engine)
         Base.metadata.create_all(engine)
@@ -23,3 +23,4 @@ class Config(object):
     Session = sessionmaker(bind=engine)
     
     
+
