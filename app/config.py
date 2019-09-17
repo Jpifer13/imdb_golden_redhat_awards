@@ -9,7 +9,6 @@ class Config(object):
     """
     This class configures the database and its migrations
     """
-
     def recreate_database(Base, engine):
         Base.metadata.drop_all(engine)
         Base.metadata.create_all(engine)
