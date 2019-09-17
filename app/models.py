@@ -1,45 +1,49 @@
-from app import db
+from sqlalchemy import Column, Integer, String, Date, ForeignKey, Float
+from app.config import Base
 
-class Director(db.Model):
-    director_name = db.Column(db.String(64), primary_key=True)
-    movie_name = db.Column(db.String(64), db.ForeignKey('movie.movie_name'), unique=True)
-    facebook_likes = db.Column(db.Integer)
+class Movie(Base):
+    __tablename__ = 'movies'
+    movie_name = Column(String(64), primary_key=True)
+    actor_name = Column(String(64), ForeignKey('actors.actor_name'), unique=True)
+    director_name = Column(String(64), ForeignKey('directors.director_name'), unique=True)
+    color = Column(String(20))
+    facebook_likes = Column(Integer)
+    num_critic_for_reviews = Column(Integer)
+    duration = Column(Integer)
+    gross = Column(Integer)
+    genres = Column(String(64))
+    num_voted_users = Column(Integer)
+    cast_total_facebook_likes = Column(Integer)
+    facenumber_in_poster = Column(Integer)
+    plot_keywords = Column(String(64))
+    movie_imdb_link = Column(String(64))
+    num_user_for_reviews = Column(String(64))
+    language = Column(String(64))
+    country = Column(String(64))
+    content_rating = Column(String(64))
+    budget = Column(Integer)
+    title_year = Column(Integer)
+    imdb_score = Column(Float)
+    aspect_ratio = Column(Float)
+    movie_facebook_likes = Column(Integer)
+
+    def __repr__(self):
+        return '<Movie {}>'.format(self.movie_name) 
+
+class Director(Base):
+    __tablename__ = 'directors'
+    director_name = Column(String(64), primary_key=True)
+    movie_name = Column(String(64), ForeignKey('movies.movie_name'), unique=True)
+    facebook_likes = Column(Integer)
 
     def __repr__(self):
         return '<Director {}>'.format(self.director_name)
 
-class Actor(db.Model):
-    actor_name = db.Column(db.String(64), primary_key=True)
-    movie_name = db.Column(db.String(64), db.ForeignKey('movie.movie_name'), unique=True)
-    facebook_likes = db.Column(db.Integer)
+class Actor(Base):
+    __tablename__ = 'actors'
+    actor_name = Column(String(64), primary_key=True)
+    movie_name = Column(String(64), ForeignKey('movies.movie_name'), unique=True)
+    facebook_likes = Column(Integer)
 
     def __repr__(self):
         return '<Actor {}>'.format(self.actor_name) 
-
-class Movie(db.Model):
-    movie_name = db.Column(db.String(64), primary_key=True)
-    actor_name = db.Column(db.String(64), db.ForeignKey('actor.actor_name'), unique=True)
-    director_name = db.Column(db.String(64), db.ForeignKey('director.director_name'), unique=True)
-    color = db.Column(db.String(20))
-    facebook_likes = db.Column(db.Integer)
-    num_critic_for_reviews = db.Column(db.Integer)
-    duration = db.Column(db.Integer)
-    gross = db.Column(db.Integer)
-    genres = db.Column(db.String(64))
-    num_voted_users = db.Column(db.Integer)
-    cast_total_facebook_likes = db.Column(db.Integer)
-    facenumber_in_poster = db.Column(db.Integer)
-    plot_keywords = db.Column(db.String(64))
-    movie_imdb_link = db.Column(db.String(64))
-    num_user_for_reviews = db.Column(db.String(64))
-    language = db.Column(db.String(64))
-    country = db.Column(db.String(64))
-    content_rating = db.Column(db.String(64))
-    budget = db.Column(db.Integer)
-    title_year = db.Column(db.Integer)
-    imdb_score = db.Column(db.Float)
-    aspect_ratio = db.Column(db.Float)
-    movie_facebook_likes = db.Column(db.Integer)
-
-    def __repr__(self):
-        return '<Movie {}>'.format(self.movie_name) 
