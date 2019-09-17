@@ -7,7 +7,19 @@ from app.functions.rw import *
 
 @app.route('/', methods=['GET'])
 def index():
+<<<<<<< HEAD
+<<<<<<< HEAD
     # data = import_database()
     
+=======
+    data = get_data()
+    for key in data.iloc[2].items():
+        print(key[0])
+    print(data.iloc[2])
+>>>>>>> 6d40d85... pandas working properly
+=======
+    # data = import_database()
+    
+>>>>>>> e846871... created database and connected
     # print(data.text)
     return render_template('mainpage.html', title='Main')
