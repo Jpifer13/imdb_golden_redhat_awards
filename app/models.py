@@ -47,7 +47,4 @@ class Actor(Base):
 
     def __repr__(self):
         return '<Actor {}>'.format(self.actor_name) 
-<<<<<<< HEAD
-=======
 
->>>>>>> eb0dff566bc332881267c6aa2f7b66392a044b11
