@@ -8,12 +8,13 @@ The dependencies for this project can be found in the file labeled "requirements
 
 ## Running the code
 
-To run the code you have to make sure that you have python installed. I am using a script to write local environment variable for the database url. To connect to your own postgres server you will have to create an environment variable named 'DATABASE_URL'. 
+To run the code you have to make sure that you have python installed. I am using a script to write local environment variable for the database url. To connect to your own postgres server you will have to create an environment variable named 'DATABASE_URL' and assign the
+url with this format: 'postgres+psycopg2://[username]:[password]@localhost:[port]/[database_name]'
 
 Next create a virtual environment to run the application using: 
 ```python -m venv venv```
 Once that is made you can import all dependencies by running:
-```pip install -r reuirements.txt```
+```pip install -r requirements.txt```
 All dependencies will be install. This can take some time depending on your pc.
 
 I have included a .flaskenv file that will have the location of the flask app and the environment in which the app is to be ran. At the moment it is default development.
