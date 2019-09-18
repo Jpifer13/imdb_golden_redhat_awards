@@ -3,11 +3,19 @@ from app import Config
 import psycopg2 
 
 def get_data_pandas():
-        # data = pd.read_csv("movie_metadata.csv", usecols=[9]) 
+        """
+        This is a method that uses pandaas to show data. If creating a database wasn't
+        a requirement for the project pandas can be used to get all the information
+        that is required.
+        """ 
+
         data = pd.read_csv("movie_metadata.csv") 
         return data
 
 def get_all_data_postgres():
+        """
+        This method returns all the data in the database
+        """
         try:
                 conn = Config.engine.raw_connection()
                 cursor = conn.cursor()
@@ -59,6 +67,10 @@ def get_all_data_postgres():
                         print("PostgreSQL connection is closed")
 
 def get_top_ten_grossest():
+        """
+        This method gets the top highest grossing films and returns the names of the movie
+        and the amount they grossed.
+        """
         try:
                 conn = Config.engine.raw_connection()
                 cursor = conn.cursor()
@@ -84,6 +96,10 @@ def get_top_ten_grossest():
                         print("PostgreSQL connection is closed")
 
 def get_top_ten_directors():
+        """
+        This method returns the top ten directors based on highest grossing and makes sure
+        that there are no duplcate directors.
+        """
         try:
                 conn = Config.engine.raw_connection()
                 cursor = conn.cursor()

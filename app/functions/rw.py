@@ -6,10 +6,12 @@ from app import Config
 import psycopg2 
 
 def import_database():
+    """
+    Use Pandas to create a dataframe of given csv file.
+    Then create a database table based on the first row from the frame that holds the coloumn info.
+    Connect to database and commit this new table replacing one if it already exists
+    """
     data = pd.read_csv("movie_metadata.csv") 
-    # print(data.gross.dtypes)
-    # data.to_sql('red_hat_movies', Config.engine)
-
 
     data.head(0).to_sql('red_hat_movies', Config.engine, if_exists='replace',index=False) #truncates the table
 
@@ -22,22 +24,11 @@ def import_database():
     cur.copy_from(output, 'red_hat_movies', null="") # null values become ''
     conn.commit()
 
-    # for key in data.iloc[2].items():
-    #     print(key)
-    # print(data.iloc[2])
-    
-
-    # with open('movie_metadata.csv') as csvfile:
-    #     readCSV = csv.reader(csvfile, delimiter=',')
-    #     index = 0
-    #     for row in readCSV:
-    #         if(index == 1):
-    #             insert_row(row)
-    #             break
-    #         index+=1
-
 def insert_row(row):
-    # print(row)
+    """
+    This was another meathod I was trying out so that I could separate the data into better tables instead of just
+    one, but time was an issue to get this project done.
+    """
     session = Config.Session()
     try:
         movie = Movie(
