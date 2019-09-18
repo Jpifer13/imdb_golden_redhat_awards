@@ -4,10 +4,11 @@ from app.config import Base
 class Movie(Base):
     __tablename__ = 'movies'
     movie_name = Column(String(64), primary_key=True)
-    actor_name = Column(String(64), ForeignKey('actors.actor_name'), unique=True)
+    actor_1_name = Column(String(64), ForeignKey('actors.actor_name'), unique=True)
+    actor_2_name = Column(String(64), ForeignKey('actors.actor_name'), unique=True)
+    actor_3_name = Column(String(64), ForeignKey('actors.actor_name'), unique=True)
     director_name = Column(String(64), ForeignKey('directors.director_name'), unique=True)
     color = Column(String(20))
-    facebook_likes = Column(Integer)
     num_critic_for_reviews = Column(Integer)
     duration = Column(Integer)
     gross = Column(Integer)
@@ -28,8 +29,52 @@ class Movie(Base):
     movie_facebook_likes = Column(Integer)
 
     def __repr__(self):
-        return '<Movie {}>'.format(self.movie_name) 
-
+        return(
+        """<Movie(movie_name='{}',
+        actor_1_name='{}',
+        actor_2_name='{}',
+        actor_3_name='{}',
+        director_name='{}',
+        color='{}',
+        num_critic_for_reviews={},
+        duration={},
+        gross={},
+        genres='{}',
+        num_voted_users={},
+        cast_total_facebook_likes={},
+        facenumber_in_poster={},
+        plot_keywords='{}',
+        num_user_for_reviews={},
+        language='{}',
+        country='{}',
+        budget={},
+        title_year={},
+        imdb_score={},
+        aspect_ratio={},
+        movie_facebook_likes={})>""".format(
+            self.movie_name,
+            self.actor_1_name,
+            self.actor_2_name,
+            self.actor_3_name,
+            self.director_name,
+            self.color,
+            self.num_critic_for_reviews,
+            self.duration,
+            self.gross,
+            self.genres,
+            self.num_voted_users,
+            self.cast_total_facebook_likes,
+            self.facenumber_in_poster,
+            self.plot_keywords,
+            self.num_user_for_reviews,
+            self.language,
+            self.country,
+            self.budget,
+            self.title_year,
+            self.imdb_score,
+            self.aspect_ratio,
+            self.movie_facebook_likes)
+        )
 class Director(Base):
     __tablename__ = 'directors'
     director_name = Column(String(64), primary_key=True)
@@ -37,7 +82,7 @@ class Director(Base):
     facebook_likes = Column(Integer)
 
     def __repr__(self):
-        return '<Director {}>'.format(self.director_name)
+        return "<Director(director_name='{}', movie_name='{}', facebook_likes={})>".format(self.director_name, self.movie_name, self.facebook_likes)
 
 class Actor(Base):
     __tablename__ = 'actors'
@@ -46,5 +91,5 @@ class Actor(Base):
     facebook_likes = Column(Integer)
 
     def __repr__(self):
-        return '<Actor {}>'.format(self.actor_name) 
+        return "<Actor(actor_name='{}', movie_name='{}', facebook_likes={})>".format(self.actor_name, self.movie_name, self.facebook_likes) 
 
