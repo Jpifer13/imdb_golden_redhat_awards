@@ -1,4 +1,3 @@
-# from app import app, db
+# This is just a file that I run the application out of.
 from app import app
-# from app.models import Director, Actor, Movie
 

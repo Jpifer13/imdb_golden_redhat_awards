@@ -28,5 +28,13 @@ The two maain functions that this project current have is to compute the top 10 
 
 To find the top genres use this link:[localhost:5000/top_ten_movies](localhost:5000/top_ten_movies) and to find the top directors use this one: [localhost:5000/top_ten_directors](localhost:5000/top_ten_directors).
 
+## Some things I would like to add
+
+There is an example html template I used as a placehold to potentially show a table  of  whatever data you want to return. I was working on building more of a REST api but time didn't  allow me to completely finish it. It also utilizes jinja to pass variables to the template. 
+
+I also would like to utilize pandas more to manipulate the data from the csv as it can get all the information that the project was supposed to return without the use of a database, but I focussed on building the database instead this time.
+
+Also building a React or Angular front end off of this Flask backend is super simple to get up and running too.
+
 ## Author
 Jake Pifer

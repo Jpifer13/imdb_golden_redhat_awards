@@ -1,1 +1,0 @@
-$Env:DATABASE_URL = 'postgres+psycopg2://postgres:G3n3s!s6@127.0.0.1:5432/golden_redhat_awards'

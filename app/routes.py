@@ -7,16 +7,17 @@ from app.functions.rw import *
 
 @app.route('/', methods=['GET'])
 def index():
+    """
+    This is a route that grabs all the database data and prints to console. 
+    """
     get_all_data_postgres()
-    # data = get_data()
-    # for key in data.iloc[2].items():
-    #     print(key[0])
-    # print(data.iloc[2])
-    # print(data.text)
     return render_template('mainpage.html', title='Main')
 
 @app.route('/import_database', methods=['GET'])
 def import_data():
+    """
+    Route to import data from csv to data base. Only should be ran once to build database.
+    """
     try:
         import_database()
     except:
@@ -24,11 +25,17 @@ def import_data():
 
 @app.route('/top_ten_movies', methods=['GET'])
 def top_ten():
+    """
+    This route returns the top ten movies based on highest grossing film
+    """
     get_top_ten_grossest()
     return render_template('mainpage.html', title='Main')
 
 @app.route('/top_ten_directors', methods=['GET'])
 def top_ten_directors():
+    """
+    This route prints top ten directors based on highest grossing film and no duplicates 
+    """
     get_top_ten_directors()
     return render_template('mainpage.html', title='Main')
     
