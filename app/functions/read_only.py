@@ -8,7 +8,6 @@ def get_data_pandas():
         a requirement for the project pandas can be used to get all the information
         that is required.
         """ 
-
         data = pd.read_csv("movie_metadata.csv") 
         return data
 
