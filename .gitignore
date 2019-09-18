@@ -49,4 +49,4 @@ varfile.py
 **__pycache__
 **build/
 **.spec
-env.sh
+**.ps1**
