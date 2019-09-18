@@ -26,7 +26,7 @@ To import the database to your postgres server open up you browser and enter thi
 
 The two maain functions that this project current have is to compute the top 10 genres in decreasing order by their profitability, and the top 10  directors in decreasing order by their profitability.
 
-To find the top genres use this link:[localhost:5000/top_ten_movies](localhost:5000/top_ten_movies) and to find the top directors use this one: [localhost:5000/top_ten_directors](localhost:5000/top_ten_directors).
+To find the top genres use this link: [localhost:5000/top_ten_movies](localhost:5000/top_ten_movies) and to find the top directors use this one: [localhost:5000/top_ten_directors](localhost:5000/top_ten_directors).
 
 ## Some things I would like to add
 
